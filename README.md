@@ -48,10 +48,6 @@ This is a simple RAG (Retrieval-Augmented Generation) implementation. Its main m
 - **Data Helper**: Loads source PDF data.
 
 
-## Overview
-The simple RAG pipeline is shown in the following figure:
-![RAG pipeline](assets/flow.png)
-
 ## Installation
 
 **Prerequisites**:
@@ -135,7 +131,7 @@ if __name__ == "__main__":
 
 Example result:
 ```bash
-$ python examples/simple_rag_bm25_ollama.py 
+$ python examples/simple_rag_bm25_ollama.py
 
 Number of chunks: 10
 Sample query: What can Ollama do?
