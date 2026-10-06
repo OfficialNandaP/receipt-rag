@@ -1,0 +1,19 @@
+services:
+  receipt-rag:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: receipt-rag:local
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+    environment:
+      RECEIPT_DB_PATH: /data/receipts.db
+      RECEIPT_VECTOR_PATH: /data/vectors.json
+    volumes:
+      - receipt-data:/data
+    restart: unless-stopped
+
+volumes:
+  receipt-data:
