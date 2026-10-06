@@ -16,12 +16,21 @@ This repository contains two related examples:
 
 ## Receipt MVP
 
-Run the local receipt workflow with:
+Install the receipt dependencies:
 
 ```bash
-pip install -r requirements-receipt.txt
+python -m pip install -r requirements-receipt.txt
+```
+
+### Streamlit Web App
+
+Start the Streamlit receipt application from the repository root:
+
+```bash
 streamlit run examples/simple_rag_bm25_ollama_ui.py
 ```
+
+The web app lets you upload or enter receipt content, normalize it, store it in SQLite, and ask questions using the local RAG pipeline. Keep the terminal running while using the app; Streamlit prints the local browser URL when it starts.
 
 The app stores normalized receipts in SQLite. Paste normalized JSON into the OCR text box while the Azure OCR adapter is being configured:
 
@@ -72,8 +81,18 @@ cd simple-rag
 pip install -e .
 ```
 
-## How to use
-Here is an example of how to use the simple-rag package:
+## RAG CLI Example
+
+Run the command-line example:
+
+```bash
+python examples/simple_rag_bm25_ollama.py
+```
+
+It ingests a PDF, answers an initial query, and then prompts for additional questions.
+
+For programmatic use, the core pipeline looks like this:
+
 ```python
 import os
 
@@ -114,7 +133,7 @@ if __name__ == "__main__":
         print()
 ```
 
-Result:
+Example result:
 ```bash
 $ python examples/simple_rag_bm25_ollama.py 
 
@@ -160,4 +179,8 @@ jupyter notebook examples/customer_csv_analysis.ipynb
 
 The notebook expects the datasets at the paths shown in the repository tree. It can also be run from VS Code with the Python and Jupyter extensions installed.
 
-Please refer to the [examples documentation](examples/README.md) for the available RAG and CSV examples.
+## Example Files
+
+- `examples/simple_rag_bm25_ollama.py`: command-line RAG example.
+- `examples/simple_rag_bm25_ollama_ui.py`: Streamlit RAG web app.
+- `examples/customer_csv_analysis.ipynb`: customer CSV profiling and low-memory large-file analysis.
